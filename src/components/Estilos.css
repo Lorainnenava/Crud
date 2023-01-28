@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    background: linear-gradient(#141e30, #243b55);
 }
 
 .chakra-ui-light {
@@ -108,7 +109,6 @@ section.redireccion{
     margin-top:20px;
 }
 a{
-    margin-top:20px;
     text-decoration: none;
     color: white;
 }

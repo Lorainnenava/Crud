@@ -16,8 +16,16 @@ export const consumirApi = createApi({
                 method: 'POST',
                 body:dataUser
             })
+        }),
+        getMostrar: builder.query({
+            query:(data)=>({
+                headers: {'Content-Type': 'application/json'},
+                method: 'GET',
+                body:data,
+            })
         })
     })
+    
 })
 
-export const {usePostMostrarMutation} =consumirApi;
+export const {usePostMostrarMutation, useGetMostrarQuery} =consumirApi;

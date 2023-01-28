@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { usePostMostrarMutation } from "../redux/Store";
 import "./Estilos.css";
 
-export const Formulario = () => {
+export const Registro = () => {
   const [alert, setAlert] = useState(false); //ALERTA DE USUARIO REPETIDO
 
   const [dataUser, setDataUser] = useState({
@@ -25,7 +25,6 @@ export const Formulario = () => {
   /*----------------- LLAMADO DE LA BASE DE DATOS ---------------------*/
   const [createDate, { data: baseData, isError, error: msgError, isSuccess }] =
     usePostMostrarMutation();
-  if (isError) console.log(msgError);
   if (isSuccess) console.log(baseData);
 
   /*----------------- FUNCION GUARDAR ---------------------*/
@@ -92,7 +91,7 @@ export const Formulario = () => {
               <span></span>
               <span></span>
               <span></span>
-              Iniciar
+              Registrar
             </button>
           </form>
         </div>
@@ -101,4 +100,4 @@ export const Formulario = () => {
   );
 };
 /*----------------- FINALIZA ---------------------*/
-export default Formulario;
+export default Registro;

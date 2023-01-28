@@ -1,10 +1,17 @@
 import "./App.css";
-import { Formulario } from "./components/Formulario";
+import { Login } from "./components/log/Login";
+import { Registro } from "./components/Registro";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Formulario />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
