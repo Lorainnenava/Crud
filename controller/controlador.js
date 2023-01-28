@@ -22,17 +22,22 @@ const postUser = async (req, res) => {
   const { body } = req;
   try {
     //NO GUARDAR DOS USUARIOS IGUALES
-    const existe= await Users.findOne({
-        where:{
-          usuario:body.usuario
-        }
+    const existe = await Users.findOne({
+      where: {
+        usuario: body.usuario,
+      },
     });
-    if(existe){
-      return res.status(400).json({ 
-        msg:'Ya existe un usuario con el nombre '+ body.usuario
-      })
+    if (existe) {
+      return res.status(400).json({
+        msg: "Ya existe un usuario con el nombre " + body.usuario,
+      });
+    } //NO GUARDAR DATOS VACIOS
+    if (body.usuario == '' || body.contraseña == '') {
+      return res.status(404).json({
+        msg: "No se permiten datos vacios",
+      });
     }
-  
+
     const user = new Users(body);
     await user.save();
     res.json(user);
